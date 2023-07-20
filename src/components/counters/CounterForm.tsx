@@ -8,10 +8,11 @@ export function CounterForm(props: CounterFormProps) {
     const [_, { Form }] = createRouteAction(
         async (formData: FormData, { ...rest }) => {
             const { counter } = Object.fromEntries(formData.entries());
-            await fetch(apiUrl + "/", {
+            await fetch(apiUrl, {
                 method: "POST",
                 body: JSON.stringify({ value: +counter }),
             });
+            alert("clicked");
         }
         // { invalidate: "counters" }
     );
