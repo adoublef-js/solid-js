@@ -12,12 +12,9 @@ export function CounterForm(props: CounterFormProps) {
                 method: "POST",
                 body: JSON.stringify({ value: +counter }),
             });
-            throw new Error("help");
         }
         // { invalidate: "counters" }
     );
-
-    if (_.error) return <div>Error</div>;
 
     return (
         <Form>
