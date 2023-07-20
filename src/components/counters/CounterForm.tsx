@@ -12,7 +12,7 @@ export function CounterForm(props: CounterFormProps) {
                 method: "POST",
                 body: JSON.stringify({ value: +counter }),
             });
-            alert("clicked");
+            alert("CounterForm.submit()");
         }
         // { invalidate: "counters" }
     );
@@ -20,7 +20,12 @@ export function CounterForm(props: CounterFormProps) {
     return (
         <Form>
             <input type="number" name="counter" required />
-            <button type="submit">create</button>
+            <button
+                type="submit"
+                onclick={(_) => alert("CounterForm.onclick()")}
+            >
+                create
+            </button>
         </Form>
     );
 }

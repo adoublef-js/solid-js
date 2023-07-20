@@ -73,7 +73,7 @@ function PageForm(props: PageFormProps) {
                 method: "POST",
                 body: JSON.stringify({ value: +counter }),
             });
-            alert("clicked");
+            alert("PageForm.submit()");
         }
         // { invalidate: "counters" }
     );
