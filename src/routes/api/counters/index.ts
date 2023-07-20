@@ -7,6 +7,7 @@ export function GET() {
 }
 
 export async function POST({ request }: APIEvent) {
+    console.log("called");
     const { value } = await request.json();
     const id = Api.create(value);
     return new Response(null, {

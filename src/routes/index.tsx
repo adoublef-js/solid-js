@@ -1,6 +1,8 @@
 import { createRouteData, createRouteAction, useRouteData } from "solid-start";
 import { For } from "solid-js";
 import { Api, Counter } from "~/lib/counters";
+import { CounterForm } from "~/components/counters/CounterForm";
+import { CounterList } from "~/components/counters/CounterList";
 
 const apiUrl = "http://localhost:3000/api/counters";
 
@@ -23,9 +25,22 @@ export default function Home() {
 
     return (
         <main>
-            <CounterForm />
-            <span>{"-".padStart(15, "-")}</span>
-            <CounterList data={data()} />
+            <section>
+                <h2>
+                    This form component is defined inside the routes directory
+                </h2>
+                <PageForm />
+                <span>{"-".padStart(15, "-")}</span>
+                <PageList data={data()} />
+            </section>
+            <section>
+                <h2>
+                    This form component is defined outside the routes directory
+                </h2>
+                <CounterForm />
+                <span>{"-".padStart(15, "-")}</span>
+                <CounterList data={data()} />
+            </section>
         </main>
     );
 }
@@ -48,9 +63,9 @@ function CounterCard(props: CounterCardProps) {
     );
 }
 
-type CounterFormProps = {};
+type PageFormProps = {};
 
-function CounterForm(props: CounterFormProps) {
+function PageForm(props: PageFormProps) {
     const [_, { Form }] = createRouteAction(
         async (formData: FormData, _) => {
             const { counter } = Object.fromEntries(formData.entries());
@@ -70,11 +85,11 @@ function CounterForm(props: CounterFormProps) {
     );
 }
 
-type CounterListProps = {
+type PageListProps = {
     data?: Counter[];
 };
 
-function CounterList(props: CounterListProps) {
+function PageList(props: PageListProps) {
     return (
         <ul>
             <For each={props.data}>
