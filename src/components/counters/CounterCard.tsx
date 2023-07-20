@@ -1,6 +1,5 @@
 import { createRouteAction } from "solid-start";
 import { Counter } from "~/lib/counters";
-import { useCounterContext } from "./CounterContext";
 
 const apiUrl = "http://localhost:3000/api/counters";
 
