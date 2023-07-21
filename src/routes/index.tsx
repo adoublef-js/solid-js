@@ -23,6 +23,18 @@ export function routeData() {
 export default function Home() {
     const data = useRouteData<typeof routeData>();
 
+    // const [_, { Form }] = createRouteAction(
+    //     async (formData: FormData, { ...rest }) => {
+    //         const { counter } = Object.fromEntries(formData.entries());
+    //         await fetch(apiUrl, {
+    //             method: "POST",
+    //             body: JSON.stringify({ value: +counter }),
+    //         });
+    //         alert("CounterForm.submit()");
+    //     }
+    //     // { invalidate: "counters" }
+    // );
+
     return (
         <main>
             <section>
@@ -67,7 +79,7 @@ type PageFormProps = {};
 
 function PageForm(props: PageFormProps) {
     const [_, { Form }] = createRouteAction(
-        async (formData: FormData, _) => {
+        async (formData: FormData, { fetch }) => {
             const { counter } = Object.fromEntries(formData.entries());
             await fetch(apiUrl + "/", {
                 method: "POST",
