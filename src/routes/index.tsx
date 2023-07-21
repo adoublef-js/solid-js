@@ -81,7 +81,9 @@ function PageForm(props: PageFormProps) {
     return (
         <Form>
             <input type="number" name="counter" required />
-            <button type="submit">create</button>
+            <button type="submit" onclick={(_) => alert("PageForm.onclick()")}>
+                create
+            </button>
         </Form>
     );
 }
